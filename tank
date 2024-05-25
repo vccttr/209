@@ -1,0 +1,41 @@
+s_font = pygame.font.SysFont("Times New Roman", 25)
+m_font = pygame.font.SysFont("Times New Roman", 50)
+l_font = pygame.font.SysFont("Times New Roman", 85)
+vs_font = pygame.font.SysFont("Times New Roman", 25)
+
+def Score(Score):
+txt = s_font.render("Score: " + str(Score), True, white)
+game_layout_display.blit(txt, [0, 0])
+
+def tank(x, y, turret_position):
+x = int(x)
+y = int(y)
+
+pos_Turrets = [(x - 27, y - 2),
+(x - 26, y - 5),
+(x - 25, y - 8),
+(x - 23, y - 12),
+(x - 20, y - 14),
+(x - 18, y - 15),
+(x - 15, y - 17),
+(x - 13, y - 19),
+(x - 11, y - 21)
+]
+
+pygame.draw.circle(game_layout_display, blue, (x, y), int(tnk_height / 2))
+pygame.draw.rect(game_layout_display, blue, (x - tnk_height, y, tnk_width, tnk_height))
+
+pygame.draw.line(game_layout_display, blue, (x, y), pos_Turrets[turret_position], tur_width)
+
+pygame.draw.circle(game_layout_display, blue, (x - 15, y + 20), whl_width)
+pygame.draw.circle(game_layout_display, blue, (x - 10, y + 20), whl_width)
+
+pygame.draw.circle(game_layout_display, blue, (x - 15, y + 20), whl_width)
+pygame.draw.circle(game_layout_display, blue, (x - 10, y + 20), whl_width)
+pygame.draw.circle(game_layout_display, blue, (x - 5, y + 20), whl_width)
+pygame.draw.circle(game_layout_display, blue, (x, y + 20), whl_width)
+pygame.draw.circle(game_layout_display, blue, (x + 5, y + 20), whl_width)
+pygame.draw.circle(game_layout_display, blue, (x + 10, y + 20), whl_width)
+pygame.draw.circle(game_layout_display, blue, (x + 15, y + 20), whl_width)
+
+return pos_Turrets[turret_position]
